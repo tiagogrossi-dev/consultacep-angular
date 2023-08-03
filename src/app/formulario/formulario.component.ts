@@ -9,6 +9,8 @@ import { FormularioService } from './formulario.service';
 })
 export class FormularioComponent implements OnInit {
   formulario!: FormGroup;
+  cep = '';
+  endereco: any;
 
   constructor(
     private fb: FormBuilder,
@@ -26,20 +28,19 @@ export class FormularioComponent implements OnInit {
   }
 
   //Recebimento dos dados de Endereço
-  consultaCep(valor: any, form: any) {
-    this.cepsService.buscar(valor).subscribe((dados) => this.populaForm(dados, form));
+  buscarEndereco() {
+    if (this.cep.length === 8) {
+      this.cepsService.getEndereco(this.cep).subscribe((data) => {
+        this.endereco = data;
+        console.log("buscarEndereco", data)
+      });
+    }
   }
 
-  //Formulario com os dados de Endereço
-  populaForm(dados: any, form: any) {
-    form.setValue({
-      cep: dados.cep,
-      logradouro: dados.logradouro,
-      bairro: dados.bairro,
-      cidade: dados.localidade,
-      uf: dados.uf
-    })
+  clearForm() {
+    this.endereco = null;
   }
+
 
   enviarFormulario() {
     if (this.formulario.valid) {
