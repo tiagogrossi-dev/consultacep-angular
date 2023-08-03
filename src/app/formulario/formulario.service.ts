@@ -11,6 +11,7 @@ export class FormularioService {
 
   constructor(private httpClient: HttpClient) { }
   
+  //Recebimento de dados vindo da API viacep
   getEndereco(cep: string): Observable<any> {
     const url = `${this.apiUrl}/${cep}/json/`;
 

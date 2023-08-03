@@ -9,7 +9,7 @@
 
         <mat-form-field appearance="fill">
             <mat-label>CPF</mat-label>
-            <input matInput formControlName="cpf">
+            <input matInput formControlName="cpf" mask="000.000.000-00">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -21,30 +21,37 @@
             </mat-select>
         </mat-form-field>
     </form>
-    <h2>Consulta de Endereço</h2>
-  <mat-form-field>
-    <mat-label>Digite o CEP</mat-label>
-    <input matInput [(ngModel)]="cep" (input)="clearForm()" maxlength="8">
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="buscarEndereco()">Buscar Endereço</button>
 
-  <div *ngIf="endereco" class="endereco">
-    <h3>Dados do Endereço</h3>
-    <mat-form-field>
-      <mat-label>Logradouro</mat-label>
-      <input matInput [(ngModel)]="endereco.logradouro" disabled>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Bairro</mat-label>
-      <input matInput [(ngModel)]="endereco.bairro" disabled>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Cidade</mat-label>
-      <input matInput [(ngModel)]="endereco.localidade" disabled>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Estado</mat-label>
-      <input matInput [(ngModel)]="endereco.uf" disabled>
-    </mat-form-field>
+    <h2>Consulta de Endereço</h2>
+    
+        <mat-form-field>
+            <mat-label>Digite o CEP</mat-label>
+            <input matInput [(ngModel)]="cep" (input)="clearForm()" maxlength="8">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="buscarEndereco()">Buscar Endereço</button>
+
+    <div *ngIf="endereco" class="endereco">
+
+        <h3>Dados do Endereço</h3>
+
+        <mat-form-field>
+            <mat-label>Logradouro</mat-label>
+            <input matInput [(ngModel)]="endereco.logradouro" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Bairro</mat-label>
+            <input matInput [(ngModel)]="endereco.bairro" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Cidade</mat-label>
+            <input matInput [(ngModel)]="endereco.localidade" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <input matInput [(ngModel)]="endereco.uf" disabled>
+        </mat-form-field>
   </div>
 </div>

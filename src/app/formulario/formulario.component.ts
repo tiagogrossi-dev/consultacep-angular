@@ -41,7 +41,7 @@ export class FormularioComponent implements OnInit {
     this.endereco = null;
   }
 
-
+//Envio de formulário realizando validações
   enviarFormulario() {
     if (this.formulario.valid) {
       console.log('Formulário válido. Dados:', this.formulario.value);
