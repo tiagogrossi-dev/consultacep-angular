@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>Preenchimento de Formulário</h2>
+    <form [formGroup]="formulario">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Sexo</mat-label>
+            <mat-select formControlName="sexo">
+              <mat-option value="masculino">Masculino</mat-option>
+              <mat-option value="feminino">Feminino</mat-option>
+              <mat-option value="outro">Outro</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <form #f="ngForm">
+        <div class="Form-group">
+
+        <h3>Dados do Endereço</h3>
+
+        <mat-form-field appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input matInput formControlName="cep" type="text" class="Form-control" name="cep" id="cep" ngModel #cep="" (blur)="consultaCep(cep.value , f)">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Endereço</mat-label>
+            <input matInput formControlName="logradouro" type="text" class="Form-control" name="logradouro" ngModel #logradouro="">
+        </mat-form-field>
+
+        <!-- <mat-form-field>
+            <mat-label>Bairro</mat-label>
+            <input matInput formControlName="bairro" type="text" class="Form-control" name="bairro" ngModel #bairro="">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Número</mat-label>
+            <input matInput formControlName="numero" type="number" class="Form-control" name="numero">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Complemento</mat-label>
+            <input matInput formControlName="complemento" type="text" class="Form-control" name="complemento">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Cidade</mat-label>
+            <input matInput formControlName="cidade" type="text" class="Form-control" name="cidade">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <input matInput formControlName="estado" type="text" class="Form-control" name="estado">
+        </mat-form-field> -->
+        
+        <button mat-raised-button color="primary" (click)="enviarFormulario()">Enviar</button>
+
+        </div>
+    </form>
+</div>
